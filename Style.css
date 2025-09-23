@@ -3,3 +3,29 @@ body {
     text-align: center;
     background-color: #fafafb;
     }
+
+.navbar {
+  background-color: #333; /* dark background */
+  padding: 10px;
+}
+
+.navbar-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.navbar-list li {
+  margin-right: 15px;
+}
+
+.navbar-list li a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+}
+
+.navbar-list li a:hover {
+  color: #ddd; /* light hover */
+}
