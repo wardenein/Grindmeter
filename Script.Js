@@ -2,7 +2,17 @@ function sayHello() {
     alert("Hello from Javascript");
  }
 
+
+
+
+
+
 Level fonction
+
+
+
+
+
 
 const form = document.getElementById('workout-form');
 const workoutList = document.getElementById('workout-list');
@@ -73,3 +83,43 @@ function displayWorkouts() {
   });
 }
 
+
+
+Local storage of workouts tracking
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("workout-form");
+  const workoutList = document.getElementById("workout-list");
+
+  // Load saved workouts on page load
+  let workouts = JSON.parse(localStorage.getItem("workouts")) || [];
+  workouts.forEach(addWorkoutToList);
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const exercise = document.getElementById("exercise").value;
+    const sets = document.getElementById("sets").value;
+    const reps = document.getElementById("reps").value;
+    const weight = document.getElementById("weight").value;
+
+    const workout = { exercise, sets, reps, weight };
+
+    // Save to localStorage
+    workouts.push(workout);
+    localStorage.setItem("workouts", JSON.stringify(workouts));
+
+    // Add to page
+    addWorkoutToList(workout);
+
+    // Reset form
+    form.reset();
+  });
+
+  function addWorkoutToList(workout) {
+    const li = document.createElement("li");
+    li.textContent = `${workout.exercise} - ${workout.sets} sets x ${workout.reps} reps @ ${workout.weight}kg`;
+    workoutList.appendChild(li);
+  }
+});
