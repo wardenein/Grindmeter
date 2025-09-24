@@ -123,3 +123,74 @@ document.addEventListener("DOMContentLoaded", () => {
     workoutList.appendChild(li);
   }
 });
+
+
+
+
+
+
+
+
+log 
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("workout-form");
+  const workoutList = document.getElementById("workout-list");
+
+  // Stats elements
+  const totalSetsEl = document.getElementById("total-sets");
+  const totalRepsEl = document.getElementById("total-reps");
+  const totalWeightEl = document.getElementById("total-weight");
+  const totalVolumeEl = document.getElementById("total-volume");
+
+  // Load saved workouts
+  let workouts = JSON.parse(localStorage.getItem("workouts")) || [];
+  workouts.forEach(addWorkoutToList);
+  updateStats();
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const exercise = document.getElementById("exercise").value;
+    const sets = parseInt(document.getElementById("sets").value);
+    const reps = parseInt(document.getElementById("reps").value);
+    const weight = parseFloat(document.getElementById("weight").value);
+
+    const workout = { exercise, sets, reps, weight };
+
+    workouts.push(workout);
+    localStorage.setItem("workouts", JSON.stringify(workouts));
+
+    addWorkoutToList(workout);
+    updateStats();
+
+    form.reset();
+  });
+
+  function addWorkoutToList(workout) {
+    const li = document.createElement("li");
+    li.textContent = `${workout.exercise} - ${workout.sets} sets × ${workout.reps} reps @ ${workout.weight}kg`;
+    workoutList.appendChild(li);
+  }
+
+  function updateStats() {
+    let totalSets = 0;
+    let totalReps = 0;
+    let totalWeight = 0;
+    let totalVolume = 0;
+
+    workouts.forEach(w => {
+      totalSets += w.sets;
+      totalReps += w.sets * w.reps;
+      totalWeight += w.weight;
+      totalVolume += w.sets * w.reps * w.weight;
+    });
+
+    totalSetsEl.textContent = `Total sets: ${totalSets}`;
+    totalRepsEl.textContent = `Total reps: ${totalReps}`;
+    totalWeightEl.textContent = `Total weight: ${totalWeight} kg`;
+    totalVolumeEl.textContent = `Total volume: ${totalVolume} kg`;
+  }
+});
