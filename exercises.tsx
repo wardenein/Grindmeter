@@ -32,3 +32,13 @@ export default async function ExercisesPage() {
     </div>
   );
 }
+
+
+import Link from "next/link";
+
+// inside your .map()
+<li key={workout.id}>
+  <Link href={`/workouts/${workout.id}`}>
+    {workout.date} - {workout.notes || "No notes"}
+  </Link>
+</li>
