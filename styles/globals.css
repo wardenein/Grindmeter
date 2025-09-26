@@ -1,0 +1,6 @@
+/* Import your original style (we'll create public/style.css below) */
+@import url('/style.css');
+
+/* Small defaults */
+html,body { padding:0; margin:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+a { color: inherit; text-decoration: none; }
