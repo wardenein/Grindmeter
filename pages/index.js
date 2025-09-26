@@ -1,4 +1,4 @@
-export default function Home() {
+exexport default function Home() {
   return (
     <div>
       <h1>Welcome to Grindmeter</h1>
