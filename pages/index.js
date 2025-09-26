@@ -1,10 +1,8 @@
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
-
-export default function IndexRedirect() {
-  const router = useRouter();
-  useEffect(() => {
-    router.replace('/index.html');
-  }, [router]);
-  return null;
+export default function Home() {
+  return (
+    <div>
+      <h1>Welcome to Grindmeter</h1>
+      {/* copy HTML from your old index.html */}
+    </div>
+  )
 }
