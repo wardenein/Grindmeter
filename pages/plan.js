@@ -1,8 +1,8 @@
-export default function Supps() {
+export default function Plan() {
   return (
     <div>
-      <h1>Supplements</h1>
-      <p>Manage your supplements and routines.</p>
+      <h1>Workout Plans</h1>
+      <p>Create and manage your workout plans here.</p>
     </div>
   )
 }
