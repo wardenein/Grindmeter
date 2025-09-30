@@ -13,3 +13,19 @@ tech stack:
 - Hosting: ?
 
 - Still in dev. a lot coming soon.
+
+
+Next steps:
+Implement signup/login with Firebase Auth
+
+Show workouts on dashboard
+
+Create/edit workouts in workouts pages
+
+Add charts
+
+Style UI with Tailwind
+
+XP, Badges, macros
+
+s
