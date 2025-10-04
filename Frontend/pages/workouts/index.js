@@ -1,9 +1,8 @@
-// pages/workouts.js
+// pages/workouts/index.js
 import { useState, useEffect } from "react";
-import Navbar from "../components/Navbar";
-import WorkoutCard from "../components/WorkoutCard";
-import Stats from "../components/Stats";
-import { calculateEXP } from "../lib/exp";
+import WorkoutCard from "../../components/WorkoutCard";
+import Stats from "../../components/Stats";
+import { calculateEXP } from "../../lib/exp";
 
 export default function Workouts() {
   const [workouts, setWorkouts] = useState([]);
@@ -38,7 +37,6 @@ export default function Workouts() {
 
   return (
     <div style={{ padding: "1rem" }}>
-      <Navbar />
       <h2>Track your workouts</h2>
 
       <form onSubmit={addWorkout} style={{ marginBottom: "1rem" }}>
